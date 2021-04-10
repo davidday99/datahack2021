@@ -1,0 +1,5 @@
+venv/*
+juan/.ipynb_checkpoints/*
+juan/OfficialCompetitionDataset.csv
+.vscode/*
+juan/reviews.txt
