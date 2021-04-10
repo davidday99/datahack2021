@@ -69,6 +69,7 @@ function App() {
                     />
                     <TextField id="standard-required" label="Concert Probability"/>
                     <TextField id="standard-required" label="Danceability"/>
+                    <TextField id="standard-required" label="Positivity"/>
                     <TextField id="standard-required" label="Hype"/>
                     <TextField id="standard-required" label="Instrumentalness"/>
                     <Select
@@ -87,13 +88,13 @@ function App() {
       <h1>Projected Streams</h1>
       <Card>
         <CardContent>
-          Test
+          -
         </CardContent>
       </Card>
       <h1>Sample Review</h1>
       <Card>
         <CardContent>
-          Test
+          -
         </CardContent>
       </Card>
     </Container>
