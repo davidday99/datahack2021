@@ -1,5 +1,6 @@
 from flask import Flask, request
 from markupsafe import Markup
+import jsonify
 from textgenrnn import textgenrnn
 import re
 import pandas as pd
@@ -108,7 +109,7 @@ def feature_engineering(param_dict):
         unscaled_features.append(param_dict[f])
 
     unscaled_features = np.array(unscaled_features)
-    unscaled_features.reshape(1, -1)
+    unscaled_features = unscaled_features.reshape(1, -1)
     global scaler
     scaled_features = scaler.transform(unscaled_features)
     for f in numerical_cols:
@@ -131,9 +132,11 @@ def get_review(name, album, artist, genre='rock'):
     return text
 
 def get_prediction(X_test):
+    print(f'Making prediction with input {X_test}')
+    X_test = [X_test]
     global model
     y_pred = model.predict(X_test)
-    return int(np.expm1(y_pred))
+    return int(np.expm1(y_pred[0]))
 
 
 @app.route('/')
@@ -173,7 +176,7 @@ def predict_and_review():
     prediction = get_prediction(param_list)
     genre = param_dict['styles'].split()[0]
     review = get_review(param_dict['name'], param_dict['album'], param_dict['artist'], genre)
-    return f'{prediction}, {review}'
+    return jsonify({stream: prediction, rev: review})
 
 if __name__ == '__main__':
     app.debug = True
