@@ -176,7 +176,7 @@ def predict_and_review():
     prediction = get_prediction(features)
     genre = param_dict['styles'].split()[0]
     review = get_review(param_dict['name'], param_dict['album'], param_dict['artist'], genre)
-    return jsonify({stream: prediction, rev: review})
+    return jsonify.jsonify({stream: prediction, rev: review})
 
 if __name__ == '__main__':
     app.debug = True
