@@ -173,7 +173,7 @@ def predict_and_review():
 
     features = feature_engineering(param_dict)
 
-    prediction = get_prediction(param_list)
+    prediction = get_prediction(features)
     genre = param_dict['styles'].split()[0]
     review = get_review(param_dict['name'], param_dict['album'], param_dict['artist'], genre)
     return jsonify({stream: prediction, rev: review})
