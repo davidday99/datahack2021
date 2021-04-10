@@ -1,6 +1,5 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from markupsafe import Markup
-import jsonify
 from textgenrnn import textgenrnn
 import re
 import pandas as pd
