@@ -1,5 +1,8 @@
 venv/*
 juan/.ipynb_checkpoints/*
-juan/OfficialCompetitionDataset.csv
+*.csv
 .vscode/*
 juan/reviews.txt
+*.DS_Store
+app/backend/catboost_info
+models/reviews.txt
